@@ -26,7 +26,7 @@ class Bisection:
                 return division(a, c, itr)
             elif calculation(c) * calculation(b) < 0:
                 return division(c, b, itr)
-        f = open('data.txt', 'w')
+        f = open('numerical_methods\data.txt', 'w')
         f.write(division(a=int(n), b=int(m)))
         f.close()
 
@@ -37,7 +37,7 @@ class EulerMethod:
         def cal(x, y):
             return eval(equation)
 
-        f = open('data.txt', 'w')
+        f = open('numerical_methods\data.txt', 'w')
         i = 0
         while i <= (end - begin) / h:
             derivative = cal(x, y)
@@ -82,7 +82,7 @@ class RungeKutta:
             else:
                 h /= 2
 
-        file = open('data.txt', 'w')
+        file = open('numerical_methods\data.txt', 'w')
         for i in range(len(x_mas)):
             file.write('i={}\t|\tx={}\t|\ty={}\n'.format(i, x_mas[i], y_mas[i]))
         file.close()

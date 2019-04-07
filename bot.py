@@ -16,11 +16,14 @@ def start(message):
 def start(message):
     bot.send_message(message.chat.id, '''
     List of available methods and their input:
-        -Bisection methods(interval and function): bisection -10 0 x*3+2
+        -Bisection methods(interval and function): 
+            bisection -10 0 x*3+2
         -Euler method(function, x, y, h, begin, end): 
             euler (2/3)*x*y+2*x 2 1 0.25 4 5.5
         -Runge-Kutta method(function, x, y, h, begin, end): 
             rungekutta (2/3)*x*y+2*x 2 1 0.1 4 4.5
+        -Lagrange polynomial(x1,y1|x2,y2|...|xn,yn x):
+        lagrange 1;15|2;17|3;7|4;21 2.5
     ''')
 
 
@@ -28,11 +31,11 @@ def start(message):
 def send_answer(message):
     method = ChooseMethods(message.text)
     Route(method.kwargs)
-    large_text = open('data.txt', 'rb').read()
+    large_text = open('numerical_methods\data.txt', 'rb').read()
     splitted_text = util.split_string(large_text, 3000)
     for text in splitted_text:
         bot.send_message(message.chat.id, text)
-    file = open('data.txt', 'rb')
+    file = open('numerical_methods\data.txt', 'rb')
     bot.send_document(message.chat.id, file)
     file.close()
 
