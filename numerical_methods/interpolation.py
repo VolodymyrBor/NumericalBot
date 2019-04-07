@@ -17,14 +17,14 @@ class Lagrange:
                     numerator *= (x - x_item)
                     denominator *= (x_coordinates[i] - x_item)
             lgrange_polynomial += numerator / denominator
-        pprint(lgrange_polynomial)
+        file.write(str(lgrange_polynomial))
         lgrange_polynomial = lgrange_polynomial.expand()
-        print('\n\n')
-        pprint(lgrange_polynomial)
-        print('\n\n')
-        pprint(lgrange_polynomial.evalf())
-        print('\n\n')
-        print('f({}) = {}'.format(x_value, lgrange_polynomial.subs(x, x_value)))
+        file.write('\n\n')
+        file.write(str(lgrange_polynomial))
+        file.write('\n\n')
+        file.write(str(lgrange_polynomial.evalf()))
+        file.write('\n\n')
+        file.write('f({}) = {}'.format(x_value, lgrange_polynomial.subs(x, x_value)))
         file.close()
 
 
