@@ -13,7 +13,7 @@ class Route:
             if kwargs['method'] == 'rungekutta':
                 RungeKutta(equation=kwargs['equation'], x=kwargs['x'], y=kwargs['y'], h=kwargs['h'], begin=kwargs['begin'], end=kwargs['end'])
             if kwargs['method'] == 'lagrange':
-                Lagrange(x_coordinates=kwargs['x_coordinates'], y_coordinates=kwargs['y_coordinates'], x_value=kwargs['x_value'])
+                Lagrange(equation=kwargs['equation'], begin=kwargs['begin'], end=kwargs['end'], h=kwargs['h'], x_value=kwargs['x_value'])
 
 
 class ChooseMethods:
