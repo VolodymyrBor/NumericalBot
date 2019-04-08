@@ -1,6 +1,7 @@
 from errors import ErrorData, ErrorMethod
 from numerical_methods.numerical import Bisection, EulerMethod, RungeKutta
 from numerical_methods.interpolation import Lagrange
+import math
 
 
 class Route:
@@ -26,6 +27,19 @@ class ChooseMethods:
         else:
             ErrorMethod()
 
+    def check_equation(self, x=0):
+        try:
+            eval(self.kwargs['equation'])
+        except NameError:
+            ErrorData()
+            return None
+        except ValueError:
+            ErrorData()
+    except /*\;kjg saQzwxecrtvby][\/*}+"\
+,7\         ErrorData()
+        else:
+            return self.kwargs
+
     def data_processor(self):
         if self.data[0] == 'bisection':
             try:
@@ -38,6 +52,10 @@ class ChooseMethods:
             except ValueError:
                 self.kwargs = None
                 ErrorData()
+            except IndexError:
+                self.kwargs = None
+                ErrorData()
+            self.kwargs = self.check_equation()
 
         if self.data[0] in ['euler', 'rungekutta']:
             try:
@@ -53,6 +71,11 @@ class ChooseMethods:
             except ValueError:
                 self.kwargs = None
                 ErrorData()
+            except IndexError:
+                self.kwargs = None
+                ErrorData()
+            self.kwargs = self.check_equation()
+
         if self.data[0] == 'lagrange':
             try:
                 self.kwargs = {
@@ -66,3 +89,7 @@ class ChooseMethods:
             except ValueError:
                 self.kwargs = None
                 ErrorData()
+            except IndexError:
+                self.kwargs = None
+                ErrorData()
+            self.kwargs = self.check_equation()

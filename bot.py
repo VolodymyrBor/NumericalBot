@@ -23,7 +23,7 @@ def start(message):
         -Runge-Kutta method(function, x, y, h, begin, end): 
             rungekutta (2/3)*x*y+2*x 2 1 0.1 4 4.5
         -Lagrange polynomial(function begin end h x):
-            lagrange 1/(x**2+5*x+6) 1 4 1 2.63git
+            lagrange 1/(x**2+5*x+6) 1 4 1 2.63
     ''')
 
 
@@ -31,11 +31,11 @@ def start(message):
 def send_answer(message):
     method = ChooseMethods(message.text)
     Route(method.kwargs)
-    large_text = open('numerical_methods\data.txt', 'rb').read()
+    large_text = open('data.txt', 'rb').read()
     splitted_text = util.split_string(large_text, 3000)
     for text in splitted_text:
         bot.send_message(message.chat.id, text)
-    file = open('numerical_methods\data.txt', 'rb')
+    file = open('data.txt', 'rb')
     bot.send_document(message.chat.id, file)
     file.close()
 

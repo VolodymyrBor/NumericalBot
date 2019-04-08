@@ -8,10 +8,9 @@ class Lagrange:
 
         x_coordinates = []
         y_coordinates = []
-        func = Symbol('x')
         x = Symbol('x')
         func = eval(equation)
-        while begin <= end :
+        while begin <= end:
             x_coordinates.append(begin)
             y_coordinates.append(func.subs(x, begin))
             begin += h
