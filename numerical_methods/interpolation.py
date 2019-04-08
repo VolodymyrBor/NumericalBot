@@ -30,11 +30,11 @@ class Lagrange:
         sys.stdout = file
         print(lgrange_polynomial)
         lgrange_polynomial = lgrange_polynomial.expand()
-        print('\n\n')
+        print('\n')
         print(lgrange_polynomial)
-        print('\n\n')
+        print('\n')
         print(lgrange_polynomial.evalf())
-        print('\n\n')
+        print('\n')
         print('f({}) = {}'.format(x_value, lgrange_polynomial.subs(x, x_value)))
         file.close()
 

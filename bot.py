@@ -23,7 +23,7 @@ def start(message):
         -Runge-Kutta method(function, x, y, h, begin, end): 
             rungekutta (2/3)*x*y+2*x 2 1 0.1 4 4.5
         -Lagrange polynomial(function begin end h x):
-            lagrange 1/(x**2+5*x+6) 1 4 1 2.63
+            lagrange 1/(x**2+5*x+6) 1 4 1 2.63git
     ''')
 
 
