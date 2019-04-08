@@ -30,13 +30,8 @@ class ChooseMethods:
     def check_equation(self, x=0):
         try:
             eval(self.kwargs['equation'])
-        except NameError:
+        except Exception:
             ErrorData()
-            return None
-        except ValueError:
-            ErrorData()
-    except /*\;kjg saQzwxecrtvby][\/*}+"\
-,7\         ErrorData()
         else:
             return self.kwargs
 
@@ -49,11 +44,7 @@ class ChooseMethods:
                     'm': float(self.data[2]),
                     'equation': self.data[3]
                 }
-            except ValueError:
-                self.kwargs = None
-                ErrorData()
-            except IndexError:
-                self.kwargs = None
+            except Exception:
                 ErrorData()
             self.kwargs = self.check_equation()
 
@@ -68,11 +59,7 @@ class ChooseMethods:
                     'begin': float(self.data[5]),
                     'end': float(self.data[6])
                 }
-            except ValueError:
-                self.kwargs = None
-                ErrorData()
-            except IndexError:
-                self.kwargs = None
+            except Exception:
                 ErrorData()
             self.kwargs = self.check_equation()
 
@@ -86,10 +73,6 @@ class ChooseMethods:
                     'h': float(self.data[4]),
                     'x_value': float(self.data[5])
                 }
-            except ValueError:
-                self.kwargs = None
-                ErrorData()
-            except IndexError:
-                self.kwargs = None
+            except Exception:
                 ErrorData()
             self.kwargs = self.check_equation()
