@@ -22,8 +22,8 @@ def start(message):
             euler (2/3)*x*y+2*x 2 1 0.25 4 5.5
         -Runge-Kutta method(function, x, y, h, begin, end): 
             rungekutta (2/3)*x*y+2*x 2 1 0.1 4 4.5
-        -Lagrange polynomial(x1,y1|x2,y2|...|xn,yn x):
-        lagrange 1;15|2;17|3;7|4;21 2.5
+        -Lagrange polynomial(function begin end h x):
+            lagrange 1/(x**2+5*x+6) 1 4 1 2.63
     ''')
 
 

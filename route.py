@@ -54,20 +54,14 @@ class ChooseMethods:
                 self.kwargs = None
                 ErrorData()
         if self.data[0] == 'lagrange':
-            x_coordinates = []
-            y_coordinates = []
             try:
-                coordinates = self.data[1].split('|')
-                x_value = self.data[2]
-                for item in coordinates:
-                    x, y = map(float, item.split(';'))
-                    x_coordinates.append(x)
-                    y_coordinates.append(y)
                 self.kwargs = {
                     'method': self.data[0],
-                    'x_coordinates': x_coordinates,
-                    'y_coordinates': y_coordinates,
-                    'x_value': float(x_value)
+                    'equation': self.data[1],
+                    'begin': float(self.data[2]),
+                    'end': float(self.data[3]),
+                    'h': float(self.data[4]),
+                    'x_value': float(self.data[5])
                 }
             except ValueError:
                 self.kwargs = None
