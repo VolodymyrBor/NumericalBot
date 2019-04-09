@@ -1,9 +1,10 @@
 import math
 import sys
-from sympy import Symbol, pprint
+from sympy import Symbol, pprint, poly
 
 
 class Lagrange:
+
     def __init__(self, equation, begin, end, h,  x_value):
 
         x_coordinates = []
@@ -25,17 +26,39 @@ class Lagrange:
                     denominator *= (x_coordinates[i] - x_item)
             lgrange_polynomial += numerator / denominator
 
-        file = open('data.txt', 'w')
+        file = open('data.txt', 'w', encoding='utf-8')
+        terminal = sys.stdout
         sys.stdout = file
-        print(lgrange_polynomial)
+
+        pprint(lgrange_polynomial)
         lgrange_polynomial = lgrange_polynomial.expand()
+
         print('\n')
-        print(lgrange_polynomial)
+        pprint(lgrange_polynomial)
         print('\n')
-        print(lgrange_polynomial.evalf())
+        pprint(lgrange_polynomial.together())
         print('\n')
-        print('f({}) = {}'.format(x_value, lgrange_polynomial.subs(x, x_value)))
+        pprint(lgrange_polynomial.evalf())
+        print('\n')
+
+        for i in range(len(x_coordinates)):
+            print('L({}) = {}\tf({}) = {}\n'.format(*map(float, [x_coordinates[i], self.gorner(lgrange_polynomial,
+                                                    x_coordinates[i]), x_coordinates[i], y_coordinates[i]])))
+
+        print('L({}) = {}\tf({}) = {}\n'.format(x_value, self.gorner(lgrange_polynomial, x_value),
+
+                                                x_value, func.subs(x, x_value)))
         file.close()
+        sys.stdout = terminal
+
+    def gorner(self, f, x_value):
+        x = Symbol('x')
+        coof = poly(f).coeffs()
+        ans = 0
+        for k in coof:
+            ans = k + ans*x_value
+        return ans
+
 
 
 
